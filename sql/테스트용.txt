@@ -1,0 +1,16 @@
+string qry2 = @"Delete From tblMain where status = 'Paid'";
+MainClass.con.Open();
+using (SqlCommand cmd = new SqlCommand(qry2, MainClass.con))
+{
+    int rowsAffected = cmd.ExecuteNonQuery();
+
+    if (rowsAffected > 0)
+    {
+        Console.WriteLine("행이 삭제되었습니다.");
+    }
+    else
+    {
+        Console.WriteLine("삭제할 행이 없습니다.");
+    }
+}
+MainClass.con.Close();
